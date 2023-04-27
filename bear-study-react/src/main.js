@@ -8,6 +8,8 @@ export default function Main() {
             <div>
                 <Link to="./pages/moffit">Link to Moffit</Link>
             </div>
+
+            example text
         </div>
     )
 }

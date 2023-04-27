@@ -14,8 +14,6 @@ function App() {
           <Route path="/pages/moffit" element={ <Moffit/> }/>
         </Routes>
       </Router>
-
-      {/* <Link to="./pages/moffit">Link to Moffit</Link> */}
     </div>
   );
 }

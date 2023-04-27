@@ -17,9 +17,9 @@
 .tabs {
     flex-direction: row;
     display: flex;
-    flex-grow: 4;
-    flex: 1;
+    flex: 6;
     width: 100%;
+    border-radius: 0px;
     border: 1px solid red;
 }
 
@@ -56,14 +56,33 @@
     justify-content: flex-end;
 }
 
-.tabButton {
-    background-color: rgba(0, 0, 0, 0.5);
+.tabButtonActive {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 60px;
+    border-radius: 20px 20px 0px 0px;
+    cursor: pointer;
+    border: none;
+}
+
+.tabButtonInactive {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 60px;
+    border-radius: 20px 20px 0px 0px;
+    cursor: pointer;
+    border: none;
+}
+
+.inactiveButtonText {
     color: white;
     opacity: 100%;
-    font-size: 20px;
-    padding: 10px 60px;
-    border-radius: 15px;
-    font-family: 'Poppins';
-    font-weight: 600;
-    cursor: pointer;
+    font-size: 30px;
+    font-family: 'Poppins'; 
+    font-weight: 800;
+}
+
+.activeButtonText {
+    color: #70BAFE;
+    font-size: 30px;
+    font-family: 'Poppins'; 
+    font-weight: 800;
 }
