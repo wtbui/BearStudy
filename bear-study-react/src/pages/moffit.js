@@ -1,8 +1,10 @@
 import "../styles/library.css" 
+import "../styles/settings.css" 
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import Timer from "../components/timer"
 import { useEffect } from "react"
+import Switch from "../components/switch"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -22,6 +24,7 @@ export default function Moffit() {
     const [maxCounter, setMaxCounter] = useState(counter)
     const [maxSecond, setMaxSecond] = useState(second)
     const [maxMinute, setMaxMinute] = useState(minute)
+    const [settingsActive, setSettingsActive] = useState(false);
 
     const handleTimer = () => {
         setShowTimer((prev) => !prev)
@@ -42,7 +45,7 @@ export default function Moffit() {
     useEffect(() => {
         let intervalId;
 
-        if (isActive) {
+        if (isActive && counter > -1) {
             intervalId = setInterval(() => {
                 const secondCounter = counter % 60;
                 const minuteCounter = Math.floor(counter / 60);
@@ -73,6 +76,47 @@ export default function Moffit() {
                 <Link to="../../">Go Back</Link>
             </div>
 
+            { settingsActive && 
+            <div>
+                <div className="timerSettings">
+                    <div className="title">
+                        <text>customize timers</text>
+                    </div >
+                    <div className="timerEntries">
+                        <div className="timeEntry">
+                            <text>pomodoro</text>
+                            <div style={{ display: "flex" }}>
+                                <input className="textEntryLeft" maxlength={2}></input>
+                                <input className="textEntryRight" maxlength={2}></input>
+                            </div>
+                            <text className="timerEntryLabels">minute second</text>
+                        </div>
+
+                        <div className="timeEntry">
+                            <text>break</text>
+                            <div style={{ display: "flex" }}>
+                                <input className="textEntryLeft" maxlength={2}></input>
+                                <input className="textEntryRight" maxlength={2}></input>
+                            </div>
+                            <text className="timerEntryLabels">minute second</text>
+                        </div>
+                    </div >
+                    <div className="select">
+                        <Switch></Switch>
+                        <text className="switchLabel">play sound when timer finishes</text>
+                    </div >
+                    <div className="volume">
+                        <text>volume</text>
+                        <text>slider</text>
+                    </div >
+                    <div className="botButtons">
+                        <text>close</text>
+                        <text>save</text>
+                    </div >
+                </div>
+                <div className="darken" onClick={() => setSettingsActive(false) }></div> 
+            </div>}
+
             <div className="tabs">
                 <div className="todo" flex-direction="column" >
                     <button className={ getButtonClass(showTodo) } onClick={ handleTodo }>
@@ -92,7 +136,12 @@ export default function Moffit() {
 
                 <div className="timer" flex-direction="column" >
                     <button className={ getButtonClass(showTimer) } onClick={ handleTimer }>
-                        { !showTimer && <text className="inactiveButtonText">timer</text> }
+                        { !showTimer && isActive && <div className="activeButtonText">
+                            <span className="minute">{minute}:</span>
+                            <span className="second">{second}</span></div> 
+                        }
+
+                        { !showTimer && !isActive && <text className="inactiveButtonText">timer</text> }
                         { showTimer && <text className="activeButtonText">timer</text> }
                     </button>
 
@@ -109,7 +158,8 @@ export default function Moffit() {
                     counter={ counter } setCounter={ setCounter }
                     maxCounter={ maxCounter } setMaxCounter={ setMaxCounter } 
                     maxSecond={ maxSecond } setMaxSecond={ setMaxSecond } 
-                    maxMinute={ maxMinute } setMaxMinute={ setMaxMinute }></Timer>}
+                    maxMinute={ maxMinute } setMaxMinute={ setMaxMinute }
+                    settingsActive={ settingsActive } setSettingsActive={ setSettingsActive }></Timer>}
                 </div>
             </div>
         </div>

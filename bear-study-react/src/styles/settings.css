@@ -1,0 +1,132 @@
+.timerSettings {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    height: 30rem;
+    width: 45rem;
+    z-index: 100;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Poppins;
+    font-weight: 400;
+    color: white;
+}
+
+.darken {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    opacity: 20%;
+    height: 100%;
+    width: 100%;
+    z-index: 80;
+}
+
+.title {
+    display: flex;
+    flex: 1.5;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.timerEntries {
+    display: flex;
+    flex: 3;
+    margin-top: 0.7rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.timeEntry {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: 400;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+}
+
+.select {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.volume {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.botButtons {
+    display: flex;
+    flex: 3;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.textEntryLeft {
+    width: 1.8em;
+    height: 1.8em;
+    font-size: 1em;
+    line-height: 1em;
+    border-radius: 15px 0px 0px 15px;
+    border-color: white;
+    background-color: black;
+    color: white;
+    margin-top: 0.2em;
+    border-right-width: 0;
+
+}
+
+.textEntryRight {
+    width: 1.8em;
+    height: 1.8em;
+    font-size: 1em;
+    line-height: 1em;
+    border-radius: 0px 15px 15px 0px;
+    border-color: white;
+    background-color: black;
+    color: white;
+    margin-top: 0.2em;
+    border-left-width: 0;
+}
+
+.timerSettingsText {
+    font-family: Poppins;
+    font-weight: 400;
+    color: white;
+    padding-top: 0.1em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+.timerEntryLabels {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 0.7em;
+    margin-top: 0.2em;
+}
+
+.switchLabel {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 1.3em;
+    margin-left: 0.7em;
+}

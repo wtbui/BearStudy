@@ -33,8 +33,6 @@ export default function Timer(props) {
         props.setMaxCounter(props.breakCounter)
     }
 
-
-    
     return (
         <div className="container">
             <div className="time">
@@ -61,7 +59,7 @@ export default function Timer(props) {
                     {props.isActive ? "pause": "start"}
                 </button>
 
-                <button onClick={() => ""} className="settings"> 
+                <button onClick={() => props.setSettingsActive(prev => !prev)} className="settings"> 
                     <img className="timerIcons" src={settings} alt="settings"/>
                 </button>
             </div>
