@@ -5,6 +5,7 @@ import { useState } from "react"
 import Timer from "../components/timer"
 import { useEffect } from "react"
 import Switch from "../components/switch"
+import SettingsPage from "../components/settingsPage"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -68,74 +69,36 @@ export default function Moffit() {
     const breakMinutes = document.querySelector('.textEntryLeftBreak');
     const breakSeconds = document.querySelector('.textEntryRightBreak');
 
-    const addListeners = () => {
+    const addEvents = () => {
         pomodoroMinutes.addEventListener('input', () => {
             if (pomodoroMinutes.value.length === pomodoroMinutes.maxLength) {
-              pomodoroSeconds.focus();
+            pomodoroSeconds.focus();
             }
         });
     
         breakMinutes.addEventListener('input', () => {
             if (breakMinutes.value.length === breakMinutes.maxLength) {
-              breakSeconds.focus();
+            breakSeconds.focus();
             }
         });
     }
 
     return (
-        <div className="main" 
+        <div className="library" 
         style={{
-            backgroundImage: `url(${require('../assets/moffit.jpeg')})`,
+            backgroundImage: `url(${require('../assets/moffitt_DRAFT.png')})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
           }}>
             <div className="header">
-                moffit!
                 <Link to="../../">Go Back</Link>
             </div>
 
             { settingsActive && 
             <div>
-                <div className="timerSettings">
-                    <div className="title">
-                        <text>customize timers</text>
-                    </div >
-                    <div className="timerEntries">
-                        <div className="timeEntry">
-                            <text>pomodoro</text>
-                            <div style={{ display: "flex" }}>
-                                <input className="textEntryLeft" maxlength={2}></input>
-                                <p className="colonLeft">:</p>
-                                <input className="textEntryRight" maxlength={2}></input>
-                            </div>
-                            <text className="timerEntryLabels">minute second</text>
-                        </div>
-
-                        <div className="timeEntry">
-                            <text>break</text>
-                            <div style={{ display: "flex" }}>
-                                <input className="textEntryLeftBreak" maxlength={2}></input>
-                                <p className="colonRight">:</p>
-                                <input className="textEntryRightBreak" maxlength={2}></input>
-                            </div>
-                            <text className="timerEntryLabels">minute second</text>
-                        </div>
-                    </div >
-                    <div className="select">
-                        <Switch></Switch>
-                        <text className="switchLabel">play sound when timer finishes</text>
-                    </div >
-                    <div className="volume">
-                        <text className="volumeLabel">volume</text>
-                        <text>slider</text>
-                    </div>
-                    <div className="botButtons">
-                        <text>close</text>
-                        <text>save</text>
-                    </div>
-                </div>
-                <div className="darken" onClick={() => setSettingsActive(false) }></div> 
+                <SettingsPage></SettingsPage>
+                <div className="darken" onClick={() => setSettingsActive(false) }></div>
             </div>}
 
             <div className="tabs">
