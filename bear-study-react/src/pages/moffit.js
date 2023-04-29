@@ -20,7 +20,7 @@ export default function Moffit() {
     const [breakCounter, setBreakCounter] = useState(299);
     const [pomoCounter, setPomoCounter] = useState(1499);
     const [isActive, setIsActive] = useState(false);
-    const [counter, setCounter] = useState(119);
+    const [counter, setCounter] = useState(1);
     const [maxCounter, setMaxCounter] = useState(counter)
     const [maxSecond, setMaxSecond] = useState(second)
     const [maxMinute, setMaxMinute] = useState(minute)
@@ -63,6 +63,25 @@ export default function Moffit() {
         return () => clearInterval(intervalId);
     }, [isActive, counter]) 
 
+    const pomodoroMinutes = document.querySelector('.textEntryLeft');
+    const pomodoroSeconds = document.querySelector('.textEntryRight');
+    const breakMinutes = document.querySelector('.textEntryLeftBreak');
+    const breakSeconds = document.querySelector('.textEntryRightBreak');
+
+    const addListeners = () => {
+        pomodoroMinutes.addEventListener('input', () => {
+            if (pomodoroMinutes.value.length === pomodoroMinutes.maxLength) {
+              pomodoroSeconds.focus();
+            }
+        });
+    
+        breakMinutes.addEventListener('input', () => {
+            if (breakMinutes.value.length === breakMinutes.maxLength) {
+              breakSeconds.focus();
+            }
+        });
+    }
+
     return (
         <div className="main" 
         style={{
@@ -87,6 +106,7 @@ export default function Moffit() {
                             <text>pomodoro</text>
                             <div style={{ display: "flex" }}>
                                 <input className="textEntryLeft" maxlength={2}></input>
+                                <p className="colonLeft">:</p>
                                 <input className="textEntryRight" maxlength={2}></input>
                             </div>
                             <text className="timerEntryLabels">minute second</text>
@@ -95,8 +115,9 @@ export default function Moffit() {
                         <div className="timeEntry">
                             <text>break</text>
                             <div style={{ display: "flex" }}>
-                                <input className="textEntryLeft" maxlength={2}></input>
-                                <input className="textEntryRight" maxlength={2}></input>
+                                <input className="textEntryLeftBreak" maxlength={2}></input>
+                                <p className="colonRight">:</p>
+                                <input className="textEntryRightBreak" maxlength={2}></input>
                             </div>
                             <text className="timerEntryLabels">minute second</text>
                         </div>
@@ -106,13 +127,13 @@ export default function Moffit() {
                         <text className="switchLabel">play sound when timer finishes</text>
                     </div >
                     <div className="volume">
-                        <text>volume</text>
+                        <text className="volumeLabel">volume</text>
                         <text>slider</text>
-                    </div >
+                    </div>
                     <div className="botButtons">
                         <text>close</text>
                         <text>save</text>
-                    </div >
+                    </div>
                 </div>
                 <div className="darken" onClick={() => setSettingsActive(false) }></div> 
             </div>}
