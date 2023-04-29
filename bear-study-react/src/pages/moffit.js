@@ -5,6 +5,7 @@ import { useState } from "react"
 import Timer from "../components/timer"
 import { useEffect } from "react"
 import Switch from "../components/switch"
+import taskList from "../components/tasklist"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -123,7 +124,7 @@ export default function Moffit() {
                         { !showTodo && <text className="inactiveButtonText">to do</text> }
                         { showTodo && <text className="activeButtonText">to do</text> }
                     </button>
-                    { showTodo && <p>Example Todo</p>}
+                    { showTodo && taskList()}
                 </div>
 
                 <div className="ambience" flex-direction="column" >
