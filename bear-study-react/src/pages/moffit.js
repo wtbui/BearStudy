@@ -8,6 +8,8 @@ import Switch from "../components/switch"
 import SettingsPage from "../components/settingsPage"
 import taskList from "../components/tasklist"
 import ambience from "../components/ambience"
+import Spotify from "../components/spotify"
+import spotifyIco from "../assets/spotify_icon.png"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
