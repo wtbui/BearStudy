@@ -45,6 +45,11 @@ export default function Moffit() {
         return showButton ? "tabButtonActive" : "tabButtonInactive" 
     }
 
+    const getButtonClassSpotify = (showButton) => {
+        return showButton ? "spotifyButtonActive" : "spotifyButtonInactive" 
+    }
+
+    // TIMER LOGIC
     useEffect(() => {
         let intervalId;
 
@@ -66,6 +71,7 @@ export default function Moffit() {
         return () => clearInterval(intervalId);
     }, [isActive, counter]) 
 
+    // TIMER EVENT LISTENER 
     const pomodoroMinutes = document.querySelector('.textEntryLeft');
     const pomodoroSeconds = document.querySelector('.textEntryRight');
     const breakMinutes = document.querySelector('.textEntryLeftBreak');
@@ -85,6 +91,7 @@ export default function Moffit() {
         });
     }
 
+    // RETURN 
     return (
         <div className="library" 
         style={{
@@ -93,17 +100,22 @@ export default function Moffit() {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
           }}>
+            {/* HEADER ELEMENTS */}
             <div className="header">
                 <Link to="../../">Go Back</Link>
             </div>
 
+            {/* CONDITIONAL FOR SETTINGS POPUP */}
             { settingsActive && 
             <div>
                 <SettingsPage></SettingsPage>
                 <div className="darken" onClick={() => setSettingsActive(false) }></div>
             </div>}
-
+            
+            {/* BOTTOM TABS */}
             <div className="tabs">
+
+                {/* TODO LIST */}
                 <div className="todo" flex-direction="column" >
                     <button className={ getButtonClass(showTodo) } onClick={ handleTodo }>
                         { !showTodo && <text className="inactiveButtonText">to do</text> }
@@ -112,6 +124,7 @@ export default function Moffit() {
                     { showTodo && taskList()}
                 </div>
 
+                {/* AMBIENCE TAB */}
                 <div className="ambience" flex-direction="column" >
                     <button className={ getButtonClass(showAmbience) } onClick={ handleAmbience }>
                         { !showAmbience && <text className="inactiveButtonText">ambience</text> }
@@ -120,6 +133,7 @@ export default function Moffit() {
                     { showAmbience && ambience()}
                 </div>
 
+                {/* TIMER TAB */}
                 <div className="timer" flex-direction="column" >
                     <button className={ getButtonClass(showTimer) } onClick={ handleTimer }>
                         { !showTimer && isActive && <div className="activeButtonText">
