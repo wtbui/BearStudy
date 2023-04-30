@@ -7,6 +7,7 @@ import { useEffect } from "react"
 import Switch from "../components/switch"
 import SettingsPage from "../components/settingsPage"
 import taskList from "../components/tasklist"
+import ambience from "../components/ambience"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -116,7 +117,7 @@ export default function Moffit() {
                         { !showAmbience && <text className="inactiveButtonText">ambience</text> }
                         { showAmbience && <text className="activeButtonText">ambience</text> }
                     </button>
-                    { showAmbience && <p>Example Ambience</p>}
+                    { showAmbience && ambience()}
                 </div>
 
                 <div className="timer" flex-direction="column" >
