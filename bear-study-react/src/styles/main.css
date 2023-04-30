@@ -1,4 +1,135 @@
-.main {
+@font-face {
+    font-family: 'Reglisse';
+    src: url('./fonts/reglisse.fill.otf') format('opentype');
+  }
+ 
+ .bear {
+    background-image:url("empty_map.png");
+    background-size: cover;
     flex-direction: column;
-    display: flex
-}
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
+    font-size:125px;
+    font-weight: bold;
+    border: 1px white;
+    color: #5EADCF;
+    border-radius:10px;
+    background-color: #F2F7FF;
+    padding-top:50px;
+    overflow: hidden;
+  }
+ 
+  .doe, .glade, .moffitt {
+     position: absolute;
+     box-sizing: border-box;
+     border:1px;
+     background-size:cover;
+     padding: 1px;
+     margin: 1px;
+     border-radius:1px;
+  }
+  
+  .doe{
+     position: absolute;
+     top: 55%;
+     left: 50%;
+     width: 15%;
+     height: 15%;
+     transform: translate(-5%, -3%);
+     transition: transform 0.2s ease-in-out;
+     z-index:1;
+  }
+ 
+  .doetext{
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    top:0;
+    right:90px;
+    opacity:0%;
+    transition: 0.3s ease-in-out;
+    font-size:30px;
+    font-weight: bold;
+    border: 1px white;
+    color: #FFE867;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index:-1;
+  }
+ 
+  .doe:hover .doetext{
+    opacity:1;
+    transform: translate(8px,-25px);
+    z-index:1;
+  }
+ 
+ 
+  .glade{
+     position: absolute;
+     top: 35%;
+     left: 50%;
+     transform: translate(-5%, -3%);
+     transition: transform 0.2s ease-in-out;
+     z-index:1;
+  }
+ 
+  .gladetext{
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    top:0;
+    opacity:0%;
+    transition: 0.3s ease-in-out;
+    font-size:30px;
+    font-weight: bold;
+    border: 1px white;
+    color: #FFE867;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index:-1;
+  }
+ 
+  .glade:hover .gladetext{
+    opacity:1;
+    transform: translate(3px,-25px);
+    z-index:1;
+  }
+  
+  .moffitt{
+     position: absolute;
+     top: 41%;
+     left: 40%;
+     transform: translate(-5%, -3%);
+     transition: transform 0.2s ease-in-out;
+     z-index: 1;
+  }
+  
+  .moffitttext{
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    top:0;
+    right:15px;
+    opacity:0%;
+    transition: 0.3s ease-in-out;
+    font-size:30px;
+    font-weight: bold;
+    border: 1px white;
+    color: #FFE867;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index:-1;
+  }
+ 
+  .moffitt:hover .moffitttext{
+    opacity:1;
+    transform: translate(0px,-40px);
+    z-index:-1;
+  }
+ 
+ 
+ .doe:hover,
+ .glade:hover,
+ .moffitt:hover {
+   transform: scale(1.3);
+ }
+ 
+ 
