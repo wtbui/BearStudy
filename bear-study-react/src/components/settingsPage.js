@@ -1,5 +1,4 @@
 import Switch from "./switch";
-import Slider from './slider'
 
 export default function SettingsPage(props) {
     const closeSettings = () => {
@@ -38,7 +37,7 @@ export default function SettingsPage(props) {
             </div >
             <div className="volume">
                 <text className="volumeLabel">volume</text>
-                <Slider></Slider>
+                {/* <Slider></Slider> */}
             </div>
             <div className="botButtons">
                 <button className="settingButton" onClick={ closeSettings }>
