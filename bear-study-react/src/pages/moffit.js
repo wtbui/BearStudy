@@ -83,7 +83,7 @@ export default function Moffit() {
     }
 
     return (
-        <div className="main" 
+        <div className="library" 
         style={{
             backgroundImage: `url(${require('../assets/moffit.jpeg')})`,
             backgroundPosition: 'center',
