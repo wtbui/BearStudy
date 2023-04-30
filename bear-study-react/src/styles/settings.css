@@ -74,6 +74,13 @@
     flex-direction: row;
 }
 
+.volumeLabel { 
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 1.3em;
+    margin-left: 0.7em;
+}
+
 .botButtons {
     display: flex;
     flex: 3;
@@ -169,4 +176,36 @@
     position: fixed;
     top: 26.5%;
     left: 31%;
+}
+
+.botButtons button {
+    transition: all 300ms ease-in-out;
+    transform: translateY(0);
+    cursor: pointer;
+}
+  
+.botButtons button {
+    transition: all 300ms ease-in-out;
+    transform: translateY(0);
+    cursor: pointer;
+}
+  
+.botButtons button:hover {
+    transform: translateY(-2px);
+}
+
+.settingButton {
+    color: white;
+    background: black;
+    border-color: white;
+    padding: 0.5rem 2rem;
+    margin-left: 1em;
+    margin-right: 1em;
+    border: none;
+    margin-left: 0.2rem;
+    font-size: 1rem;
+    font-family: "Poppins";
+    border-radius: 15px;
+    border: 2px solid white;    
+    font-weight: bold;
 }

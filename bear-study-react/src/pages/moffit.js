@@ -7,11 +7,14 @@ import { useEffect } from "react"
 import Switch from "../components/switch"
 import SettingsPage from "../components/settingsPage"
 import taskList from "../components/tasklist"
+import spotifyIco from "../assets/spotify_icon.png"
+import Spotify from "../components/spotify"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
     const [showAmbience, setShowAmbience] = useState(false)
     const [showTodo, setShowTodo] = useState(false)
+    const [showSpotify, setShowSpotify] = useState(false)
 
     const [second, setSecond] = useState('00');
     const [minute, setMinute] = useState('2');
@@ -38,10 +41,28 @@ export default function Moffit() {
 
     const handleTodo = () => {
         setShowTodo((prev) => !prev)
+
+        if (showSpotify) {
+            setShowSpotify(false)
+        }
+    }
+
+    const handleSpotify = () => {
+        setShowSpotify((prev) => !prev)
+
+        if (showTodo) {
+            handleTodo()
+            handleAmbience()
+            handleTimer()
+        }
     }
 
     const getButtonClass = (showButton) => {
         return showButton ? "tabButtonActive" : "tabButtonInactive" 
+    }
+
+    const getButtonClassSpotify = (showButton) => {
+        return showButton ? "spotifyButtonActive" : "spotifyButtonInactive" 
     }
 
     useEffect(() => {
@@ -94,11 +115,21 @@ export default function Moffit() {
           }}>
             <div className="header">
                 <Link to="../../">Go Back</Link>
+
+                <div className="spotify">
+                    { showSpotify && <Spotify></Spotify>}
+                    <button className={ getButtonClassSpotify(showSpotify) } onClick={ handleSpotify }>
+                        <img className="spotifyIcon" src={spotifyIco} alt="spotify"/>
+                    </button>
+                </div>
             </div>
 
             { settingsActive && 
             <div>
-                <SettingsPage></SettingsPage>
+                <SettingsPage
+                    settingsActive={ settingsActive } 
+                    setSettingsActive={ setSettingsActive }
+                ></SettingsPage>
                 <div className="darken" onClick={() => setSettingsActive(false) }></div>
             </div>}
 

@@ -1,7 +1,10 @@
 import Switch from "./switch";
+import Slider from './slider'
 
 export default function SettingsPage(props) {
-
+    const closeSettings = () => {
+        props.setSettingsActive(false)
+    }
 
     return(
         <div className="timerSettings">
@@ -35,11 +38,15 @@ export default function SettingsPage(props) {
             </div >
             <div className="volume">
                 <text className="volumeLabel">volume</text>
-                <text>slider</text>
+                <Slider></Slider>
             </div>
             <div className="botButtons">
-                <text>close</text>
-                <text>save</text>
+                <button className="settingButton" onClick={ closeSettings }>
+                    close
+                </button>
+                <button className="settingButton">
+                    save
+                </button>
             </div>
         </div>
     );
