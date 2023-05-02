@@ -45,6 +45,10 @@ export default function Moffit() {
     const [audio4Play, setAudio4Play] = useState(true); 
     const [taskListArr, setTaskListArr] = useState([]);
 
+    function updateTaskList(task) {
+        setTaskListArr([...taskListArr, task])
+    }    
+
     function handlePlay() {
         if (audio1Play) {
             audio1Ref.current.play();
@@ -202,7 +206,7 @@ export default function Moffit() {
                         { !showTodo && <text className="inactiveButtonText">to do</text> }
                         { showTodo && <text className="activeButtonText">to do</text> }
                     </button>
-                    { showTodo && taskList()}
+                    { showTodo && taskList(updateTaskList={updateTaskList})}
                 </div>
 
                 {/* AMBIENCE TAB */}
