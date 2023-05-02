@@ -6,6 +6,7 @@
     max-height: 100vh;
     position: relative;
     overflow: hidden;
+    overscroll-behavior: none;
 }
 
 .header {
@@ -13,7 +14,7 @@
     display: flex;
     flex: 5;
     height: 100%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .tabs {
@@ -24,7 +25,8 @@
     min-height: 500px;
     width: 100%;
     border-radius: 0px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    justify-content: flex-end;
 }
 
 .timer {
@@ -34,7 +36,7 @@
     width: 100vh / 3;
     padding-left: 0.25%;
     padding-right: 0.25%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     justify-content: flex-end;
 }
 
@@ -45,7 +47,7 @@
     width: 100wh / 3;
     padding-left: 0.25%;
     padding-right: 0.25%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     justify-content: flex-end;
 }
 
@@ -56,8 +58,12 @@
     width: 100%;
     padding-left: 0.25%;
     padding-right: 0.25%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     justify-content: flex-end;
+}
+
+.ambience button:hover {
+    width: 100%;
 }
 
 .ambience-wrapper {
@@ -86,6 +92,22 @@
     font-size: 30px;
     font-family: 'Poppins'; 
     font-weight: 800;
+
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: linear-gradient(to right, #70BAFE, #70BAFE 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
+  }
+  
+.inactiveButtonText:hover {
+    background-position: 0 100%;
 }
 
 .activeButtonText {
@@ -98,22 +120,35 @@
 .spotifyButtonActive {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 15px 15px;
-    border-radius: 0px 30px 30px 0px;
+    border-radius: 30px 0px 0px 30px;
+    height: 20%;
     cursor: pointer;
     border: none;
 }
 
 .spotifyButtonInactive {
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 10px 10px;
-    border-radius: 0px 30px 30px 0px;
+    padding: 15px 15px;
+    border-radius: 30px 0px 0px 30px;
+    height: 20%;
     cursor: pointer;
     border: none;
 }
 
-.spotify {
+.spotifyTabInactive {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;  
+    position: fixed;
+    right: -22%; 
+    top: 5%; 
+}
+
+.spotifyTabActive {
+    display: flex;
+    flex-direction: row;  
+    position: fixed;
+    right: 0%;
+    top: 5%;
 }
 
 .spotifyIcon {
@@ -123,3 +158,42 @@
     margin-top: 0.5rem;
     margin-right: 0.5rem; 
 }
+
+.backIcon {
+    position: fixed;
+    left: 2%;
+    top: 5%;
+    height:70%;
+    width: 70%;
+    pointer-events: none;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+}
+
+.backButtonLink {
+    height: 8%;
+    width: 4.5%;
+    left: 3%;
+    top: 5%;
+    position:fixed;
+    transition: background-color 0.2s;
+    border-radius: 15px;
+}
+
+.backButtonLink:hover {
+    background-color:rgba(255, 255, 255, 0.3)
+}
+
+.clockDiv {
+    position: fixed;
+    font-family: Poppins;
+    font-weight: 800;
+    left:26%;
+    top: 10%;
+    font-size: 400%;
+}
+

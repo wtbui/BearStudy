@@ -11,6 +11,8 @@ import spotifyIco from "../assets/spotify_icon.png"
 import Spotify from "../components/spotify"
 import { useRef } from "react"
 import Ambience from "../components/ambience"
+import backButton from "../assets/bearstudy_map_icon.png"
+import Clock from "../components/clock"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -112,42 +114,18 @@ export default function Moffit() {
 
     const handleTimer = () => {
         setShowTimer((prev) => !prev)
-
-        if (showSpotify) {
-            setShowSpotify(false)
-        }
     }
 
     const handleAmbience = () => {
         setShowAmbience((prev) => !prev)
-
-        if (showSpotify) {
-            setShowSpotify(false)
-        }
     }
 
     const handleTodo = () => {
         setShowTodo((prev) => !prev)
-
-        if (showSpotify) {
-            setShowSpotify(false)
-        }
     }
 
     const handleSpotify = () => {
         setShowSpotify((prev) => !prev)
-
-        if (showTodo) {
-            handleTodo()
-        }
-
-        if (showAmbience) {
-            handleAmbience()
-        }
-
-        if (showTimer) {
-            handleTimer()
-        }
     }
 
     const getButtonClass = (showButton) => {
@@ -156,6 +134,10 @@ export default function Moffit() {
 
     const getButtonClassSpotify = (showButton) => {
         return showButton ? "spotifyButtonActive" : "spotifyButtonInactive" 
+    }
+
+    const getTabClassSpotify = (showButton) => {
+        return showButton ? "spotifyTabActive" : "spotifyTabInactive" 
     }
 
     useEffect(() => {
@@ -207,14 +189,21 @@ export default function Moffit() {
             backgroundRepeat: 'no-repeat',
           }}>
             <div className="header">
-                <Link to="../../">Go Back</Link>
+                <div className="backButtonDiv">
+                    <img className="backIcon" src={ backButton } alt="back"/>
+                    <Link className="backButtonLink" to="../../"></Link>
+                </div>
 
-                <div className="spotify">
-                    { showSpotify && <Spotify uri="spotify:playlist:6xZTCV7Xs5TMsgRLDEuojY" size="large" 
-                    theme="black" view="list"></Spotify>}
+                <div className="clockDiv">
+                    <Clock></Clock>
+                </div>
+
+                <div className= { getTabClassSpotify(showSpotify) }>
                     <button className={ getButtonClassSpotify(showSpotify) } onClick={ handleSpotify }>
                         <img className="spotifyIcon" src={spotifyIco} alt="spotify"/>
                     </button>
+                    <Spotify uri="spotify:playlist:6xZTCV7Xs5TMsgRLDEuojY" size="large" 
+                    theme="black" view="list"></Spotify>
                 </div>
             </div>
 
@@ -223,6 +212,10 @@ export default function Moffit() {
                 <SettingsPage
                     settingsActive={ settingsActive } 
                     setSettingsActive={ setSettingsActive }
+                    setPomoMinute={ setPomoMinute }
+                    setPomoSecond={ setPomoSecond }
+                    setBreakMinute={ setBreakMinute }
+                    setBreakSecond={ setBreakSecond }
                 ></SettingsPage>
                 <div className="darken" onClick={() => setSettingsActive(false) }></div>
             </div>}

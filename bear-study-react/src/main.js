@@ -17,7 +17,7 @@ export default function Main() {
                    <img className="icon" src={doeIcon} alt="Icon of Doe" />
                    <div class="doetext">Doe</div>
                    </Link>
-             </div>
+                </div>
 
 
                <div className="glade">
