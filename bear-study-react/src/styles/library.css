@@ -3,6 +3,7 @@
     display: flex;
     flex: 1;
     min-height: 100vh;
+    max-height: 100vh;
     position: relative;
 }
 
@@ -20,7 +21,6 @@
     display: flex;
     flex-grow: 2;
     flex: 7;
-    height: 100%;
     border: 1px solid red;
 }
 
@@ -39,7 +39,7 @@
     flex-direction: column;
     display: flex;
     flex: 1;
-    width: 100%;
+    width: 100vh / 3;
     padding-left: 0.25%;
     padding-right: 0.25%;
     border: 1px solid red;
@@ -50,7 +50,7 @@
     flex-direction: column;
     display: flex;
     flex: 1;
-    width: 100%;
+    width: 100wh / 3;
     padding-left: 0.25%;
     padding-right: 0.25%;
     border: 1px solid red;
