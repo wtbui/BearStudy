@@ -112,10 +112,18 @@ export default function Moffit() {
 
     const handleTimer = () => {
         setShowTimer((prev) => !prev)
+
+        if (showSpotify) {
+            setShowSpotify(false)
+        }
     }
 
     const handleAmbience = () => {
         setShowAmbience((prev) => !prev)
+
+        if (showSpotify) {
+            setShowSpotify(false)
+        }
     }
 
     const handleTodo = () => {
@@ -131,7 +139,13 @@ export default function Moffit() {
 
         if (showTodo) {
             handleTodo()
+        }
+
+        if (showAmbience) {
             handleAmbience()
+        }
+
+        if (showTimer) {
             handleTimer()
         }
     }
