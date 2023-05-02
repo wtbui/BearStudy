@@ -10,7 +10,7 @@ import taskList from "../components/tasklist"
 import Ambience from "../components/ambience"
 import React, { useRef } from 'react';
 import Spotify from "../components/spotify"
-import spotifyIco from "../assets/spotify_icon.png"
+// import spotifyIco from "../assets/spotify_icon.png"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -43,6 +43,7 @@ export default function Moffit() {
     const [audio2Play, setAudio2Play] = useState(true); 
     const [audio3Play, setAudio3Play] = useState(true); 
     const [audio4Play, setAudio4Play] = useState(true); 
+    const [taskListArr, setTaskListArr] = useState([]);
 
     function handlePlay() {
         if (audio1Play) {
