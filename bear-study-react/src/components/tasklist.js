@@ -1,6 +1,6 @@
 import "../styles/tasklist.css";
 
-function taskList(props) {
+function taskList() {
     function finishTask(div, btn) {
       div.remove();
       btn.remove();
@@ -29,7 +29,6 @@ function taskList(props) {
 
       let inputText = document.getElementById('new-todo');
       task.textContent = inputText.value;
-      props.updateTaskList();
       inputText.value = "";
 
       let xBtn = document.createElement('button');

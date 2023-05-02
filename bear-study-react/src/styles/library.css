@@ -61,6 +61,10 @@
     justify-content: flex-end;
 }
 
+.ambience button:hover {
+    width: 100%;
+}
+
 .ambience-wrapper {
     background-color: rgba(0, 0, 0, 0.7);
 }
@@ -87,6 +91,22 @@
     font-size: 30px;
     font-family: 'Poppins'; 
     font-weight: 800;
+
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: linear-gradient(to right, #70BAFE, #70BAFE 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
+  }
+  
+.inactiveButtonText:hover {
+    background-position: 0 100%;
 }
 
 .activeButtonText {

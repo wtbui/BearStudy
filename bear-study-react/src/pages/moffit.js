@@ -44,6 +44,7 @@ export default function Moffit() {
     const [audio2Play, setAudio2Play] = useState(true); 
     const [audio3Play, setAudio3Play] = useState(true); 
     const [audio4Play, setAudio4Play] = useState(true); 
+    const [currTaskList, setTaskList] = useState([]);
 
     function handlePlay() {
         if (audio1Play) {
@@ -158,7 +159,6 @@ export default function Moffit() {
         return showButton ? "spotifyButtonActive" : "spotifyButtonInactive" 
     }
 
-    // TIMER LOGIC
     useEffect(() => {
         let intervalId;
 
@@ -180,7 +180,6 @@ export default function Moffit() {
         return () => clearInterval(intervalId);
     }, [isActive, counter]) 
 
-    // TIMER EVENT LISTENER 
     const pomodoroMinutes = document.querySelector('.textEntryLeft');
     const pomodoroSeconds = document.querySelector('.textEntryRight');
     const breakMinutes = document.querySelector('.textEntryLeftBreak');
@@ -200,7 +199,6 @@ export default function Moffit() {
         });
     }
 
-    // RETURN 
     return (
         <div className="library" 
         style={{
@@ -209,7 +207,6 @@ export default function Moffit() {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
           }}>
-            {/* HEADER ELEMENTS */}
             <div className="header">
                 <Link to="../../">Go Back</Link>
 
@@ -222,7 +219,6 @@ export default function Moffit() {
                 </div>
             </div>
 
-            {/* CONDITIONAL FOR SETTINGS POPUP */}
             { settingsActive && 
             <div>
                 <SettingsPage
@@ -231,20 +227,16 @@ export default function Moffit() {
                 ></SettingsPage>
                 <div className="darken" onClick={() => setSettingsActive(false) }></div>
             </div>}
-            
-            {/* BOTTOM TABS */}
-            <div className="tabs">
 
-                {/* TODO LIST */}
+            <div className="tabs">
                 <div className="todo" flex-direction="column" >
                     <button className={ getButtonClass(showTodo) } onClick={ handleTodo }>
                         { !showTodo && <text className="inactiveButtonText">to do</text> }
                         { showTodo && <text className="activeButtonText">to do</text> }
                     </button>
-                    { showTodo && taskList(updateTaskList={updateTaskList})}
+                    { showTodo && taskList()}
                 </div>
 
-                {/* AMBIENCE TAB */}
                 <div className="ambience" flex-direction="column" >
                     <button className={ getButtonClass(showAmbience) } onClick={ handleAmbience }>
                         { !showAmbience && <text className="inactiveButtonText">ambience</text> }
@@ -260,7 +252,6 @@ export default function Moffit() {
                     />}
                 </div>
 
-                {/* TIMER TAB */}
                 <div className="timer" flex-direction="column" >
                     <button className={ getButtonClass(showTimer) } onClick={ handleTimer }>
                         { !showTimer && isActive && <div className="activeButtonText">
