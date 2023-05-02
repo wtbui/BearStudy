@@ -7,7 +7,7 @@ function Ambience(props) {
             <div className='wrapper'>
                 <p className='volumeTitle'>{props.volumeTitle}</p>
                 <audio loop ref={props.audio1Ref}>
-                    <source src={require('../assets/talking.mp3')}/>   
+                    <source src={props.audio1}/>   
                     This browser does not support HTML5 audio 
                 </audio>
                 <div className='slider-wrapper'>
@@ -18,7 +18,7 @@ function Ambience(props) {
             <div className='wrapper'>
                 <p className='volumeTitle'>{props.volume2Title}</p>
                 <audio loop ref={props.audio2Ref}>
-                    <source src={require('../assets/Pen Writing .mp3')}/>  
+                    <source src={props.audio2}/>  
                     This browser does not support HTML5 audio 
                 </audio>
                 <div className='slider-wrapper'>
@@ -30,7 +30,7 @@ function Ambience(props) {
             <div className='wrapper'>
                 <p className='volumeTitle'>{props.volume3Title}</p>
                 <audio loop ref={props.audio3Ref}>
-                    <source src={require('../assets/Typing Keyboard.mp3')}/>  
+                    <source src={props.audio3}/>  
                     This browser does not support HTML5 audio 
                 </audio>
                 <div className='slider-wrapper'>
@@ -41,7 +41,7 @@ function Ambience(props) {
             <div className='wrapper'>
                 <p className='volumeTitle'>{props.volume4Title}</p>
                 <audio loop ref={props.audio4Ref}>
-                    <source src={require('../assets/Rain On Roof.mp3')}/>  
+                    <source src={props.audio4}/>  
                     This browser does not support HTML5 audio 
                 </audio>
                 <div className='slider-wrapper'>
