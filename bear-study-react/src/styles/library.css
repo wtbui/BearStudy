@@ -57,6 +57,10 @@
     justify-content: flex-end;
 }
 
+.ambience-wrapper {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .tabButtonActive {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 15px 60px;
