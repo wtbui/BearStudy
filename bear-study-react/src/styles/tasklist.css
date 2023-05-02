@@ -1,3 +1,7 @@
+.container {
+  height: 84.8%;
+}
+
 .wrapper-wrapper {
   display: flex;
   justify-content: space-between;
@@ -12,12 +16,18 @@
   font-family: 'Poppins';
   font-weight: 800;
   background-color: transparent;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   width: 30px;
   height: 30px;
   color: white;
   border-radius: 60%;
   word-break: break-all;
+  cursor: pointer;
+}
+
+.button-wrapper button:hover {
+  background-color: rgba(255, 255, 255, 0.27);
+  color: black;
 }
 
 .task-wrapper {
@@ -37,7 +47,7 @@
   word-break: break-all;
 }
 
-.todoListWrapper {
+.list-wrapper-main {
   width: 85%;
   overflow: scroll;
 }

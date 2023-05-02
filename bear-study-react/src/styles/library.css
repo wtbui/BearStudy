@@ -20,6 +20,8 @@
     flex-direction: row;
     display: flex;
     flex: 5;
+    max-height: 500px;
+    min-height: 500px;
     width: 100%;
     border-radius: 0px;
     border: 1px solid red;
