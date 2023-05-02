@@ -201,7 +201,7 @@
     position: fixed;
     font-family: Poppins;
     font-weight: 800;
-    left:43.8%;
+    left: 43%;
     top: 23%;
     font-size: 250%;
     color: rgba(66, 17, 0, 1);
@@ -211,9 +211,9 @@
     position: fixed;
     font-family: Poppins;
     font-weight: 800;
-    left:66.8%;
-    top: 9%;
-    font-size: 500%;
+    left:68.8%;
+    top: 4%;
+    font-size: 400%;
     transform: scale(1,1.2);
-    color: rgba(185, 0, 96, 0.72);
+    color: rgba(235, 84, 126, 0.8);
 }

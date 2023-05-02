@@ -198,10 +198,6 @@ export default function Doe() {
                     <Link className="backButtonLink" to="../../"></Link>
                 </div>
 
-                <div className="clockDivDoe">
-                    <Clock></Clock>
-                </div>
-
                 <div className= { getTabClassSpotify(showSpotify) }>
                     <button className={ getButtonClassSpotify(showSpotify) } onClick={ handleSpotify }>
                         <img className="spotifyIcon" src={spotifyIco} alt="spotify"/>
