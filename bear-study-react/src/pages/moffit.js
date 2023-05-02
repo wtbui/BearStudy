@@ -13,6 +13,10 @@ import { useRef } from "react"
 import Ambience from "../components/ambience"
 import backButton from "../assets/bearstudy_map_icon.png"
 import Clock from "../components/clock"
+import audio1 from "../assets/talking.mp3"
+import audio2 from "../assets/2 Minute White Noise.mp3"
+import audio3 from "../assets/Typing Keyboard.mp3"
+import audio4 from "../assets/rain.mp3"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -242,6 +246,7 @@ export default function Moffit() {
                     volume4={volume4} handleVolume4={handleVolume4} volume4Title="rainy day"
                     audio2Ref={audio2Ref} audio3Ref={audio3Ref} audio4Ref={audio4Ref}
                     handle2Play={handle2Play} handle3Play={handle3Play} handle4Play={handle4Play}
+                    audio1={audio1} audio2={audio2} audio3={audio3} audio4={audio4}
                     />}
                 </div>
 
