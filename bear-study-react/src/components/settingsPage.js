@@ -37,7 +37,7 @@ export default function SettingsPage(props) {
             </div >
             <div className="volume">
                 <text className="volumeLabel">volume</text>
-                {/* <Slider></Slider> */}
+                <input type="range" min="0" max="100" step="0.1"/>
             </div>
             <div className="botButtons">
                 <button className="settingButton" onClick={ closeSettings }>

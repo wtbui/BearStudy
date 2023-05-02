@@ -13,15 +13,15 @@ export default function Main() {
        </div>
 
                <div className="doe">
-                   <Link to="./">
+                   <Link to="./pages/doe">
                    <img className="icon" src={doeIcon} alt="Icon of Doe" />
                    <div class="doetext">Doe</div>
                    </Link>
-             </div>
+                </div>
 
 
                <div className="glade">
-                    <Link to="./">
+                    <Link to="./pages/glade">
                     <img className="icon" src={gladeIcon} alt="Icon of Glade"/>
                     <div class="gladetext">Memorial Glade</div>
                     </Link>

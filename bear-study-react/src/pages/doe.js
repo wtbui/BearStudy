@@ -14,7 +14,7 @@ import Ambience from "../components/ambience"
 import backButton from "../assets/bearstudy_map_icon.png"
 import Clock from "../components/clock"
 
-export default function Moffit() {
+export default function Doe() {
     const [showTimer, setShowTimer] = useState(false)
     const [showAmbience, setShowAmbience] = useState(false)
     const [showTodo, setShowTodo] = useState(false)
@@ -46,7 +46,6 @@ export default function Moffit() {
     const [audio2Play, setAudio2Play] = useState(true); 
     const [audio3Play, setAudio3Play] = useState(true); 
     const [audio4Play, setAudio4Play] = useState(true); 
-    const [currTaskList, setTaskList] = useState([]);
 
     function handlePlay() {
         if (audio1Play) {
@@ -184,7 +183,7 @@ export default function Moffit() {
     return (
         <div className="library" 
         style={{
-            backgroundImage: `url(${require('../assets/moffitt_DRAFT.png')})`,
+            backgroundImage: `url(${require('../assets/doe_background.png')})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -195,7 +194,7 @@ export default function Moffit() {
                     <Link className="backButtonLink" to="../../"></Link>
                 </div>
 
-                <div className="clockDiv">
+                <div className="clockDivDoe">
                     <Clock></Clock>
                 </div>
 
@@ -203,7 +202,7 @@ export default function Moffit() {
                     <button className={ getButtonClassSpotify(showSpotify) } onClick={ handleSpotify }>
                         <img className="spotifyIcon" src={spotifyIco} alt="spotify"/>
                     </button>
-                    <Spotify uri="spotify:playlist:6xZTCV7Xs5TMsgRLDEuojY" size="large" 
+                    <Spotify uri="spotify:playlist:7ro8ULOhjgxxL3tN0uf7KS" size="large" 
                     theme="black" view="list"></Spotify>
                 </div>
             </div>

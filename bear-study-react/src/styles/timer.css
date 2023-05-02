@@ -5,17 +5,18 @@
   background:  rgba(0, 0, 0, 0.7);;
   border-radius: 0px 0px 0px 0px;
   height: 100%;
+  animation-duration: 0.2s;
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 }
   
 .time {
   font-size: 8rem;
   display: flex;
   justify-content: center;
-  /* margin-bottom: 3rem; */
   margin-top: 1rem;
   color: white;
   width: 100%;
-  border: 1px solid red;
   line-height: 8rem;
   flex: 2;
   font-weight: 600;
@@ -45,7 +46,7 @@
 .buttons {
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   width: 100%;
   flex: 1
@@ -120,4 +121,16 @@
   flex-direction: column;
   justify-content: space-evenly;
   flex: 3
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }
