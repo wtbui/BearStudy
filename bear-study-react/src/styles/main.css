@@ -5,7 +5,9 @@
 
 .bear {
    background-image:url("empty_map.png");
-   background-size: cover;
+   background-size:cover;
+   background-repeat: no-repeat;
+   background-position: center center;
    flex-direction: column;
    font-family: "Poppins", sans-serif;
    display: flex;
@@ -16,11 +18,45 @@
    font-size:125px;
    font-weight: bold;
    border: 1px white;
-   color: #5EADCF;
+   color:white;
    border-radius:10px;
    background-color: #F2F7FF;
    padding-top:50px;
    overflow: hidden;
+   background-color: white;
+   cursor: pointer;
+   position:relative;
+ }
+
+.bstext{
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+  transition: text-shadow 2s ease-in-out;
+  transition: 1.2s;
+}
+
+ .bstext:hover{
+  transform: scale(1.08);
+  text-shadow: 0 0 15px rgba(255,255,255,1);
+  
+ }
+
+ /* .bear::before{
+   position: absolute;
+   background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255,255,255,0.06)
+      transparent 40%
+   );
+   border-radius: inherit;
+   content:"";
+   opacity:0;
+   transition: opacity 500ms;
+ } */
+
+ .bear:hover::before{
+   opacity:1;
  }
 
  .doe, .glade, .moffitt {
@@ -54,7 +90,7 @@
    font-size:30px;
    font-weight: bold;
    border: 1px white;
-   color: #FFE867;
+   color: #ffdd00;
    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
    z-index:-1;
  }
@@ -84,14 +120,14 @@
    font-size:30px;
    font-weight: bold;
    border: 1px white;
-   color: #FFE867;
+   color: #ffdd00;
    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
    z-index:-1;
  }
 
  .glade:hover .gladetext{
    opacity:1;
-   transform: translate(3px,-25px);
+   transform: translate(1px,-25px);
    z-index:1;
  }
  
@@ -114,7 +150,7 @@
    font-size:30px;
    font-weight: bold;
    border: 1px white;
-   color: #FFE867;
+   color: #ffdd00;
    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
    z-index:-1;
  }
