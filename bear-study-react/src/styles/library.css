@@ -11,8 +11,7 @@
 .header {
     flex-direction: column;
     display: flex;
-    flex-grow: 2;
-    flex: 20;
+    flex: 5;
     height: 100%;
     border: 1px solid red;
 }
@@ -20,7 +19,9 @@
 .tabs {
     flex-direction: row;
     display: flex;
-    flex: 6;
+    flex: 5;
+    max-height: 500px;
+    min-height: 500px;
     width: 100%;
     border-radius: 0px;
     border: 1px solid red;
@@ -43,7 +44,6 @@
     display: flex;
     flex: 1;
     width: 100wh / 3;
-    max-height: 70%;
     padding-left: 0.25%;
     padding-right: 0.25%;
     border: 1px solid red;

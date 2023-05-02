@@ -7,15 +7,16 @@ import { useEffect } from "react"
 import Switch from "../components/switch"
 import SettingsPage from "../components/settingsPage"
 import taskList from "../components/tasklist"
-import Ambience from "../components/ambience"
-import React, { useRef } from 'react';
+import spotifyIco from "../assets/spotify_icon.png"
 import Spotify from "../components/spotify"
-// import spotifyIco from "../assets/spotify_icon.png"
+import { useRef } from "react"
+import Ambience from "../components/ambience"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
     const [showAmbience, setShowAmbience] = useState(false)
     const [showTodo, setShowTodo] = useState(false)
+    const [showSpotify, setShowSpotify] = useState(false)
 
     const [second, setSecond] = useState('00');
     const [minute, setMinute] = useState('2');
@@ -43,11 +44,6 @@ export default function Moffit() {
     const [audio2Play, setAudio2Play] = useState(true); 
     const [audio3Play, setAudio3Play] = useState(true); 
     const [audio4Play, setAudio4Play] = useState(true); 
-    const [taskListArr, setTaskListArr] = useState([]);
-
-    function updateTaskList(task) {
-        setTaskListArr([...taskListArr, task])
-    }    
 
     function handlePlay() {
         if (audio1Play) {
@@ -116,14 +112,42 @@ export default function Moffit() {
 
     const handleTimer = () => {
         setShowTimer((prev) => !prev)
+
+        if (showSpotify) {
+            setShowSpotify(false)
+        }
     }
 
     const handleAmbience = () => {
         setShowAmbience((prev) => !prev)
+
+        if (showSpotify) {
+            setShowSpotify(false)
+        }
     }
 
     const handleTodo = () => {
         setShowTodo((prev) => !prev)
+
+        if (showSpotify) {
+            setShowSpotify(false)
+        }
+    }
+
+    const handleSpotify = () => {
+        setShowSpotify((prev) => !prev)
+
+        if (showTodo) {
+            handleTodo()
+        }
+
+        if (showAmbience) {
+            handleAmbience()
+        }
+
+        if (showTimer) {
+            handleTimer()
+        }
     }
 
     const getButtonClass = (showButton) => {
@@ -188,12 +212,23 @@ export default function Moffit() {
             {/* HEADER ELEMENTS */}
             <div className="header">
                 <Link to="../../">Go Back</Link>
+
+                <div className="spotify">
+                    { showSpotify && <Spotify uri="spotify:playlist:6xZTCV7Xs5TMsgRLDEuojY" size="large" 
+                    theme="black" view="list"></Spotify>}
+                    <button className={ getButtonClassSpotify(showSpotify) } onClick={ handleSpotify }>
+                        <img className="spotifyIcon" src={spotifyIco} alt="spotify"/>
+                    </button>
+                </div>
             </div>
 
             {/* CONDITIONAL FOR SETTINGS POPUP */}
             { settingsActive && 
             <div>
-                <SettingsPage></SettingsPage>
+                <SettingsPage
+                    settingsActive={ settingsActive } 
+                    setSettingsActive={ setSettingsActive }
+                ></SettingsPage>
                 <div className="darken" onClick={() => setSettingsActive(false) }></div>
             </div>}
             

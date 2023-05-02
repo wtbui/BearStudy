@@ -56,9 +56,11 @@ function taskList(props) {
             <label for="name" class="form__label">enter a task</label>
         </div>
           {/* <input type="text" id="new-todo" placeholder="Enter a task" onKeyDown={handleKeyDown}></input> */}
-        <div className="todoListWrapper">
-            <ul id="todo-list"></ul>
-        </div>            
+        <div className="list-wrapper-main">
+          <ul id="todo-list">  
+          </ul>
+        </div>
+
       </div>
     );
   }
