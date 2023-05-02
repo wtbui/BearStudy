@@ -52,12 +52,12 @@ function taskList() {
       <div class="container">
         <div class="form__group field">
             <input type="text" class="form__field" placeholder="" name="name" id='new-todo' onKeyDown={handleKeyDown} autoComplete="off"></input>
-            <label for="name" class="form__label">Enter a task</label>
+            <label for="name" class="form__label">enter a task</label>
         </div>
           {/* <input type="text" id="new-todo" placeholder="Enter a task" onKeyDown={handleKeyDown}></input> */}
-        <ul id="todo-list">
-          
-        </ul>
+        <div className="todoListWrapper">
+            <ul id="todo-list"></ul>
+        </div>            
       </div>
     );
   }

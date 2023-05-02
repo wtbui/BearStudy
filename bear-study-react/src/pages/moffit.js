@@ -9,6 +9,8 @@ import SettingsPage from "../components/settingsPage"
 import taskList from "../components/tasklist"
 import spotifyIco from "../assets/spotify_icon.png"
 import Spotify from "../components/spotify"
+import { useRef } from "react"
+import Ambience from "../components/ambience"
 
 export default function Moffit() {
     const [showTimer, setShowTimer] = useState(false)
@@ -30,6 +32,83 @@ export default function Moffit() {
     const [maxSecond, setMaxSecond] = useState(second)
     const [maxMinute, setMaxMinute] = useState(minute)
     const [settingsActive, setSettingsActive] = useState(false);
+    const [volume, setVolume] = useState(0.4); 
+    const [volume2, setVolume2] = useState(0.1);
+    const [volume3, setVolume3] = useState(0.3);
+    const [volume4, setVolume4] = useState(0.3);
+    const audio1Ref = useRef(null);
+    const audio2Ref = useRef(null);
+    const audio3Ref = useRef(null);
+    const audio4Ref = useRef(null);
+    const [audio1Play, setAudio1Play] = useState(true); 
+    const [audio2Play, setAudio2Play] = useState(true); 
+    const [audio3Play, setAudio3Play] = useState(true); 
+    const [audio4Play, setAudio4Play] = useState(true); 
+
+    function handlePlay() {
+        if (audio1Play) {
+            audio1Ref.current.play();
+            audio1Ref.current.volume = 0.5;
+            setAudio1Play(!audio1Play);
+        } else {
+            audio1Ref.current.pause();
+            setAudio1Play(!audio1Play);
+        }
+    }
+
+    function handle2Play() {
+        if (audio2Play) {
+            audio2Ref.current.play();
+            setAudio2Play(!audio2Play);
+        } else {
+            audio2Ref.current.pause();
+            setAudio2Play(!audio2Play);
+        }
+    }
+
+    function handle3Play() {
+        if (audio3Play) {
+            audio3Ref.current.play();
+            setAudio3Play(!audio3Play);
+        } else {
+            audio3Ref.current.pause();
+            setAudio3Play(!audio3Play);
+        }
+    }
+
+    function handle4Play() {
+        if (audio4Play) {
+            audio4Ref.current.play();
+            setAudio4Play(!audio4Play);
+        } else {
+            audio4Ref.current.pause();
+            setAudio4Play(!audio4Play);
+        }
+    }
+
+    const handleVolume= (event) => {
+        const volume = event.target.value;
+        setVolume(volume)
+        audio1Ref.current.volume = volume;
+    }
+
+    const handleVolume2 = (event) => {
+        const volume = event.target.value;
+        setVolume2(volume)
+        audio2Ref.current.volume = volume;
+    }
+
+    const handleVolume3 = (event) => {
+        const volume = event.target.value;
+        setVolume3(volume)
+        audio3Ref.current.volume = volume;
+    }
+ 
+    const handleVolume4 = (event) => {
+        const volume = event.target.value;
+        setVolume4(volume)
+        audio4Ref.current.volume = volume;
+    }
 
     const handleTimer = () => {
         setShowTimer((prev) => !prev)
@@ -117,7 +196,8 @@ export default function Moffit() {
                 <Link to="../../">Go Back</Link>
 
                 <div className="spotify">
-                    { showSpotify && <Spotify></Spotify>}
+                    { showSpotify && <Spotify uri="spotify:playlist:6xZTCV7Xs5TMsgRLDEuojY" size="large" 
+                    theme="black" view="list"></Spotify>}
                     <button className={ getButtonClassSpotify(showSpotify) } onClick={ handleSpotify }>
                         <img className="spotifyIcon" src={spotifyIco} alt="spotify"/>
                     </button>
@@ -147,7 +227,14 @@ export default function Moffit() {
                         { !showAmbience && <text className="inactiveButtonText">ambience</text> }
                         { showAmbience && <text className="activeButtonText">ambience</text> }
                     </button>
-                    { showAmbience && <p>Example Ambience</p>}
+                    {showAmbience && <Ambience volume={volume} handleVolume={handleVolume} volumeTitle="other students"
+                    audio1Ref={audio1Ref} handlePlay={handlePlay} 
+                    volume2={volume2} handleVolume2={handleVolume2} volume2Title="books and papers"
+                    volume3={volume3} handleVolume3={handleVolume3} volume3Title="typing"
+                    volume4={volume4} handleVolume4={handleVolume4} volume4Title="rainy day"
+                    audio2Ref={audio2Ref} audio3Ref={audio3Ref} audio4Ref={audio4Ref}
+                    handle2Play={handle2Play} handle3Play={handle3Play} handle4Play={handle4Play}
+                    />}
                 </div>
 
                 <div className="timer" flex-direction="column" >
