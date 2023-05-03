@@ -192,9 +192,10 @@
     position: fixed;
     font-family: Poppins;
     font-weight: 800;
-    left:26%;
-    top: 10%;
+    left:70%;
+    top: 4%;
     font-size: 400%;
+    color: rgba(0, 0, 0, 0.7    );
 }
 
 .clockDivDoe {
@@ -216,4 +217,15 @@
     font-size: 400%;
     transform: scale(1,1.2);
     color: rgba(235, 84, 126, 0.8);
+}
+
+.backText {
+    font-family: Poppins;
+    font-weight: 800;
+    position: fixed;
+    top: 13%;
+    left: 3.8%;
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,1);
+
 }

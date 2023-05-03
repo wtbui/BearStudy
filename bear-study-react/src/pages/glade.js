@@ -198,6 +198,7 @@ export default function Glade() {
                 <div className="backButtonDiv">
                     <img className="backIcon" src={ backButton } alt="back"/>
                     <Link className="backButtonLink" to="../../"></Link>
+                    <text className="backText">back</text>
                 </div>
 
                 <div className="clockDivGlade">
